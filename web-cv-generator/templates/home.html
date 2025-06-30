@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Beranda{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="card shadow-lg rounded-4 p-5 text-center">
+    <h1 class="fw-bold mb-4">👋 Selamat Datang, {{ current_user.username }}!</h1>
+    <p class="lead">Kamu sudah login. Silakan mulai membuat Curriculum Vitae (CV) atau lihat CV yang sudah pernah kamu buat sebelumnya.</p>
+
+    <div class="d-grid gap-3 mt-4 col-md-6 mx-auto">
+      <a href="{{ url_for('index') }}" class="btn btn-success btn-lg">✍️ Buat CV Baru</a>
+      <a href="{{ url_for('list_cv') }}" class="btn btn-primary btn-lg">📄 Lihat CV Saya</a>
+      <a href="{{ url_for('logout') }}" class="btn btn-outline-danger btn-sm mt-3">Logout</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

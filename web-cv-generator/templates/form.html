@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Buat CV Online{% endblock %}
+{% block content %}
+<div class="form-container">
+  <div class="form-card">
+    <h2 class="form-title">Buat CV Online ✨</h2>
+    <p class="form-subtitle">Lengkapi form di bawah ini untuk membuat CV kamu</p>
+    <form method="post" class="cv-form">
+      <label for="nama">Nama Lengkap</label>
+      <input type="text" name="nama" id="nama" placeholder="Masukkan nama kamu" required>
+
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="Masukkan email aktif" required>
+
+      <label for="deskripsi">Deskripsi Singkat</label>
+      <textarea name="deskripsi" id="deskripsi" placeholder="Ceritakan tentang dirimu" rows="3" required></textarea>
+
+      <label for="foto">URL Foto</label>
+      <input type="text" name="foto" id="foto" placeholder="https://contoh.com/foto.jpg">
+
+      <button type="submit">Simpan CV</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
