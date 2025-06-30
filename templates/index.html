@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}Buat CV Lengkap{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <div class="card shadow-lg rounded-4 p-4">
+    <h1 class="text-center mb-4 fw-bold">📄 Buat CV Lengkap</h1>
+    <form method="post" action="{{ url_for('generate_cv') }}">
+      <!-- Informasi Kontak -->
+      <h5 class="fw-semibold mt-4">Informasi Kontak</h5>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="name" class="form-label">Nama Lengkap</label>
+          <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" name="email" class="form-control" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="phone" class="form-label">No. Telepon</label>
+          <input type="text" name="phone" class="form-control">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="address" class="form-label">Alamat</label>
+          <input type="text" name="address" class="form-control">
+        </div>
+      </div>
+
+      <!-- Media Sosial -->
+      <h5 class="fw-semibold mt-4">Media Sosial</h5>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="linkedin" class="form-label">LinkedIn</label>
+          <input type="url" name="linkedin" class="form-control">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="github" class="form-label">GitHub</label>
+          <input type="url" name="github" class="form-control">
+        </div>
+      </div>
+
+      <!-- Ringkasan Profil -->
+      <h5 class="fw-semibold mt-4">Ringkasan</h5>
+      <div class="mb-3">
+        <textarea name="summary" class="form-control" rows="4" placeholder="Deskripsikan tentang dirimu" required></textarea>
+      </div>
+
+      <!-- Pendidikan, Pengalaman, Proyek, Sertifikasi -->
+      {% for section in ['education', 'experience', 'projects', 'certifications'] %}
+        <h5 class="fw-semibold mt-4">{{ section|capitalize }}</h5>
+        <div class="mb-3">
+          <textarea name="{{ section }}" class="form-control" rows="4" placeholder="Pisahkan dengan tanda titik koma (;)"></textarea>
+        </div>
+      {% endfor %}
+
+      <!-- Keahlian dan Bahasa -->
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <h5 class="fw-semibold mt-4">Keahlian</h5>
+          <textarea name="skills" class="form-control" rows="3" placeholder="Contoh: Python; HTML; CSS"></textarea>
+        </div>
+        <div class="col-md-6 mb-3">
+          <h5 class="fw-semibold mt-4">Bahasa</h5>
+          <textarea name="languages" class="form-control" rows="3" placeholder="Contoh: Indonesia; Inggris"></textarea>
+        </div>
+      </div>
+
+      <!-- Foto -->
+      <h5 class="fw-semibold mt-4">Foto</h5>
+      <div class="mb-4">
+        <input type="url" name="photo" class="form-control" placeholder="URL Foto Profil (opsional)">
+      </div>
+
+      <button type="submit" class="btn btn-success w-100">💾 Simpan CV</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
